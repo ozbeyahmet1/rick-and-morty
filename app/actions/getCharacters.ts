@@ -16,6 +16,7 @@ export async function getCharacters(query: string): Promise<Result> {
     throw new Error(`Failed to fetch characters: ${res.statusText}`);
   }
 
-  const data: Result = await res.json(); // Ensure the response matches the Result type
+  // Parse the JSON response and ensure it matches the `Result` type
+  const data: Result = (await res.json()) as Result; // Explicitly type the JSON response
   return data;
 }
