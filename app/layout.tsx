@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import Header from "@/ui/layout/header";
 
 export const metadata: Metadata = {
   title: "Find the Morty",
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className}`}>{children}</body>
+      <body className={`${montserrat.className}`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
