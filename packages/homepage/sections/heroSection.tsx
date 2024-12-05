@@ -11,7 +11,7 @@ interface HeroContainerProps {
 }
 export default function HeroContainer({ onClickSearch }: HeroContainerProps) {
   return (
-    <section className="w-full h-auto border-b-2 overflow-x-hidden">
+    <section className="w-full h-auto  overflow-x-hidden">
       <div className="w-[90%] sm:w-full container mx-auto sm:py-5 flex justify-between gap-3 sm:gap-10">
         <div className={`sm:py-20 ${jersey25.className}`}>
           <p className={`text-lg sm:text-xl ${montserrat.className} mb-2`}>
