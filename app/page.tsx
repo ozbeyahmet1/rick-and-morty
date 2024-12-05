@@ -2,13 +2,23 @@ import HomepageView from "@/packages/homepage/view";
 import { getCharacters } from "./actions/getCharacters";
 import React from "react";
 
-export default async function Homepage({ params }: { params: Promise<{ page: string }> }) {
+export default async function Homepage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ page: string }>;
+  searchParams: Promise<{ page: string; gender: string; status: string }>;
+}) {
   // Default to page 1 if the page parameter is not provided
-  const page = (await params).page || "1";
+  const page = (await searchParams).page || "1";
+  const gender = (await searchParams).gender || "";
+  const status = (await searchParams).status || "";
 
   try {
     // Fetch characters using the dynamic page parameter
-    const data = await getCharacters(`character?page=${page}`);
+    const data = await getCharacters(
+      `character?page=${page}${gender ? `&gender=${gender}` : ""}${status ? `&status=${status}` : ""}`,
+    );
     const characters = data.results;
     const info = data.info;
 

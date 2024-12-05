@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import { updateQueryParam } from "@/packages/homepage/helpers/utils";
 
 interface PaginationProps {
   /**
@@ -45,6 +47,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
    *
    * @returns {JSX.Element[]} Array of JSX elements representing page numbers.
    */
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const renderPageNumbers = () => {
     const pageNumbers: (number | string)[] = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -60,7 +64,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         return (
           <Link
             key={index}
-            href={`?page=${page}`}
+            href={`${pathname}?${updateQueryParam("page", page.toString(), searchParams)}`}
             scroll={false}
             onClick={() => handlePageClick(page)}
             className={`w-full relative inline-flex items-center px-4 py-2 text-sm font-semibold rounded-sm ${

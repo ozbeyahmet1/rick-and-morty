@@ -11,7 +11,7 @@ import { Result } from "@/packages/homepage/helpers/types";
 export async function getCharacters(query: string): Promise<Result> {
   const baseUrl = "https://rickandmortyapi.com/api";
   const res = await fetch(`${baseUrl}/${query}`);
-
+  console.log("query", `${baseUrl}/${query}`);
   if (!res.ok) {
     throw new Error(`Failed to fetch characters: ${res.statusText}`);
   }
