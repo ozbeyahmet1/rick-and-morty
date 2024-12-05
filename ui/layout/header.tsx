@@ -10,7 +10,7 @@ import Logo from "./logo";
  */
 export default function Header(): JSX.Element {
   return (
-    <header className="container mx-auto py-5 sm:py-10">
+    <header className="container mx-auto py-5 sm:py-10 pl-3 sm:px-0">
       <nav className="flex items-center justify-between w-[90%] sm:w-full">
         {/* Logo section */}
         <Logo />
