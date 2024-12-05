@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier":"prettier --write ."
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "react": "19.0.0-rc-66855b96-20241106",
